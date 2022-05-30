@@ -42,12 +42,18 @@ background(0);
     vehicles[i].borders();
     vehicles[i].display(); 
   }
-  let string = "1.- Click and drag the mouse to create particles. 2.- Move cursor and the will flock. 3.- They react to your voice or sound level of the room. 4.- Use Spacebar to delete particles.";
 
-  textSize(15);
+  let particlesNumber = vehicles.length;
+  let string = "1.- Click and drag the mouse to create particles. 2.- Move cursor and the will flock. 3.- They react to your voice or sound level of the room. "
+  let string2 = `4.- Use Spacebar to delete particles one by one. 5.- Press E to clear the canvas. `
+let string3 = `Number of particles: ${vehicles.length}`
+  textSize(20);
   fill("white");
   textFont('Helvetica');  
   text(string, 50, 30);
+  text(string2, 50, 60);
+  textSize(25);
+  text(string3, 50, 90);
 }
 
 
@@ -61,8 +67,11 @@ function keyPressed()
   saveFrames('colorflock', 'png', 1, 1)
 
   if (key == ' ') 
+  vehicles.splice(0, 1);
+
+  if (key == "E")
   vehicles.splice(0, vehicles.length);
-  
+
   }
 
 
