@@ -1,21 +1,22 @@
 //Bubbles
-
+//Code by Marlon Barrios Solano
 // Separation
 // Via Reynolds: http://www.red3d.com/cwr/steer/
-//Code by Marlon Barrios Solano
-// A list of vehicles
+
+// A list of vehicles/Particles
 var vehicles = [];
 var mic;
  
-
-
 function setup() {
+  createCanvas(windowWidth,windowHeight);
+
   mic = new p5.AudioIn();
 
   // start the Audio Input.
   // By default, it does not .connect() (to the computer speakers)
   mic.start();
-  createCanvas(windowWidth,windowHeight);
+
+
   // We are now making random vehicles and storing them in an array
   for (var i = 0; i < vehicles.length; i++) {
     vehicles.push(new Vehicle(random(width),random(height)));
@@ -24,9 +25,7 @@ function setup() {
 
 function draw() {
  
-
 background(0);
-
   for (var i = 0; i < vehicles.length; i++) {
     vehicles[i].applyBehaviors(vehicles);
     vehicles[i].update();
@@ -40,15 +39,13 @@ background(0);
   let string3 = "3.- They react to your voice or sound level of the room";
   let string4 = "4.- Pop them one by one with the Space Bar";
   let string5 = "5.- Press E to erase the canvas.";
+  let string6 = `Number of bubbles: ${particlesNumber}`
 
 
-let string6 = `Number of bubbles: ${particlesNumber}`
-
-
-
+//text in canvas
   textSize(15);
   fill("white");
-  textFont('Helvetica');  
+  textFont('Arial');  
   text(string, 50, 30);
   text(string2, 50, 60);
   text(string3, 50, 90);
@@ -59,7 +56,7 @@ let string6 = `Number of bubbles: ${particlesNumber}`
  
 
 
-
+//Keys interaction
   function keyPressed() 
 {
   if (key == 'P') 
@@ -74,7 +71,7 @@ let string6 = `Number of bubbles: ${particlesNumber}`
   }
 }
 
-
+//Bubble creation
 function mouseDragged() {
   vehicles.push(new Vehicle(mouseX,mouseY));
 }
@@ -82,7 +79,7 @@ function mouseDragged() {
 function keyPressed() 
 {
   if (key == 'P') 
-  saveFrames('colorflock', 'png', 1, 1)
+  saveFrames('bubbles', 'png', 1, 1)
 
   if (key == ' ') 
   vehicles.splice(0, 1);
