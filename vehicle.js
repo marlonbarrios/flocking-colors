@@ -97,7 +97,8 @@ function Vehicle(x, y) {
   }
 
   this.display = function() {
-    fill(random(255), random(255), random(255));
+    // fill(random(255), random(255), random(255));
+    noFill()
     stroke(255);
     strokeWeight(2);
     push();
