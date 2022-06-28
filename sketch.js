@@ -5,16 +5,10 @@
 
 // A list of vehicles/Particles
 var vehicles = [];
-var mic;
+
  
 function setup() {
   createCanvas(windowWidth,windowHeight);
-
-
-
-  // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
-  mic.start();
 
 
   // We are now making random vehicles and storing them in an array
@@ -88,11 +82,4 @@ function keyPressed()
   vehicles.splice(0, vehicles.length);
 
   }
-
-
-
-
-
-
-
 
