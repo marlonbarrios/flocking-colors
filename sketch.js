@@ -10,7 +10,7 @@ var mic;
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
-  mic = new p5.AudioIn();
+
 
   // start the Audio Input.
   // By default, it does not .connect() (to the computer speakers)
