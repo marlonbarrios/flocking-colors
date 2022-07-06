@@ -5,10 +5,16 @@
 
 // A list of vehicles/Particles
 var vehicles = [];
-
+var mic;
  
 function setup() {
   createCanvas(windowWidth,windowHeight);
+
+  mic = new p5.AudioIn();
+
+  // start the Audio Input.
+  // By default, it does not .connect() (to the computer speakers)
+  mic.start();
 
 
   // We are now making random vehicles and storing them in an array
@@ -54,7 +60,7 @@ background(0);
   function keyPressed() 
 {
   if (key == 'P') 
-  saveFrames('colorflock', 'png', 1, 1)
+  saveFrames('flock', 'png', 1, 1)
 
   if (key == ' ') 
   vehicles.splice(0, 1);
@@ -69,17 +75,4 @@ background(0);
 function mouseDragged() {
   vehicles.push(new Vehicle(mouseX,mouseY));
 }
-
-function keyPressed() 
-{
-  if (key == 'P') 
-  saveFrames('bubbles', 'png', 1, 1)
-
-  if (key == ' ') 
-  vehicles.splice(0, 1);
-
-  if (key == "E")
-  vehicles.splice(0, vehicles.length);
-
-  }
 
